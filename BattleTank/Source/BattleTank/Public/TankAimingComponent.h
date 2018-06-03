@@ -42,7 +42,7 @@ public:
 	EFiringState GetFiringState() const;
 
 	UFUNCTION(BlueprintCallable, Category = "Firing")
-	int GetRoundLeft() const;
+	int32 GetRoundLeft() const;
 
 protected:
 	UPROPERTY(BlueprintReadOnly, Category = "State")
@@ -72,5 +72,6 @@ private:
 
 	FVector AimDirection;
 
-	int RoundLeft = 5;
+	UPROPERTY(EditDefaultsOnly, Category = "Firing")
+	int32 RoundLeft = 5;
 };
