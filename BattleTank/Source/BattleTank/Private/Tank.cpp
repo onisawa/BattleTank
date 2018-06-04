@@ -15,10 +15,12 @@ float ATank::TakeDamage(float DamageAmount, struct FDamageEvent const & DamageEv
 	auto DamageToApply = FMath::Clamp(DamagePoints, 0, CurrentHealth);
 	
 	CurrentHealth -= DamageToApply;
-	if (CurrentHealth <= 0)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Tank Destroyed"));
-	}
+
 	return DamageToApply;
+}
+
+float ATank::GetHealthPercent() const
+{
+	return (float)CurrentHealth / (float)StartingHealth;
 }
 
